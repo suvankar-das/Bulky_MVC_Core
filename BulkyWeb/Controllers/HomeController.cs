@@ -15,7 +15,10 @@ namespace BulkyWeb.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // If no View name pass to the View() , then it will search for a view named Index
+            // But If You pass Viewname here , it will be rendered that view as well.
+            //return View();
+            return View("Privacy");
         }
 
         public IActionResult Privacy()
