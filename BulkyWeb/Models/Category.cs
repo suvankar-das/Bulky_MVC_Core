@@ -20,9 +20,11 @@ namespace BulkyWeb.Models
         // With Required data annotation , in table this column should have not null 
 
         [DisplayName("Category Name")]
+        [MaxLength(30,ErrorMessage ="Maximum 30 character allowed")]
         public string Name { get; set; }
 
         [DisplayName("Display Order")]
+        [Range(1,100,ErrorMessage ="Range should be 1-100")]
         public int DisplayOrder { get; set; }
     }
 }
