@@ -1,0 +1,49 @@
+﻿@model ProductViewModel
+
+<form method="post">
+    @*This is required for editing THIS IS SUPER SUPER IMPORTANT*@
+    <input asp-for="Product.Id" hidden />
+    <div class="mt-4 p-3 border">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Category</h2>
+            <hr />
+        </div>
+        @* <div asp-validation-summary="All"></div> *@
+        <div class="mb-3 row p-1">
+            <label asp-for="Product.Title" class="p-0"></label>
+            <input asp-for="Product.Title" class="form-control" />
+            <span class="text-danger" asp-validation-for="Product.Title"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label class="p-0" asp-for="Product.ISBN"></label>
+            <input asp-for="Product.ISBN" class="form-control" />
+            <span class="text-danger" asp-validation-for="Product.ISBN"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label class="p-0" asp-for="Product.Author"></label>
+            <input asp-for="Product.Author" class="form-control" />
+            <span class="text-danger" asp-validation-for="Product.Author"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label class="p-0" asp-for="Product.CategoryId"></label>
+            <span class="text-danger" asp-validation-for="Product.CategoryId"></span>
+            <select asp-for="@Model.Product.CategoryId" asp-items="@Model.CategoryList">
+                <option disabled>--Select --</option>
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary form-control">Update</button>
+            </div>
+            <div class="col-6">
+                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary form-control">Back to list</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial.cshtml" />
+    }
+}
